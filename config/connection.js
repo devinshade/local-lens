@@ -10,7 +10,7 @@ if (process.env.JAWSDB_URL) {
   sequelize = new Sequelize(
     'locallens_db',
     'root',
-    'Joseph12102003$',
+    'password',
     {
       host: 'localhost',
       dialect: 'mysql',
