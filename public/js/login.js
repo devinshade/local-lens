@@ -20,31 +20,33 @@ if (email && password) {
 };
 
 const signupFormHandler = async (event) => {
-event.preventDefault();
+    event.preventDefault();
 
-const name = document.querySelector("#name-signup").value.trim();
-const email = document.querySelector("#email-signup").value.trim();
-const password = document.querySelector("#password-signup").value.trim();
+    const name = document.querySelector("#name-signup").value.trim();
+    const email = document.querySelector("#email-signup").value.trim();
+    const password = document.querySelector("#password-signup").value.trim();
 
-if (name && email && password) {
-    const response = await fetch("/api/users", {
-    method: "POST",
-    body: JSON.stringify({ name, email, password }),
-    headers: { "Content-Type": "application/json" },
-    });
+    if (name && email && password) {
+        const response = await fetch("/api/users", {
+        method: "POST",
+        body: JSON.stringify({ name, email, password }),
+        headers: { "Content-Type": "application/json" },
+        });
 
-    if (response.ok) {
-    document.location.replace("/profile");
+        if (response.ok) {
+            document.location.replace("/profile");
+        } else {
+            alert(response.statusText);
+        }
     } else {
-    alert(response.statusText);
+        alert("You done broke it")
     }
-}
 };
 
 document
-.querySelector(".login-form")
-.addEventListener("submit", loginFormHandler);
+.querySelector("#login-btn")
+.addEventListener("click", loginFormHandler);
 
 document
-.querySelector(".signup-form")
-.addEventListener("submit", signupFormHandler);
+.querySelector("#signup-btn")
+.addEventListener("click", signupFormHandler);
