@@ -26,4 +26,4 @@ const seedBlog = async () => {
   console.log('Blog seeded!');
 };
 
-seedVenues();
+seedBlog();

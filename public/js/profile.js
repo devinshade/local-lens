@@ -1,14 +1,14 @@
 const newFormHandler = async (event) => {
   event.preventDefault();
 
-  const name = document.querySelector('#venuw-name').value.trim();
-  const reviewRating= document.querySelector('#review-rating').value.trim();
-  const reviewContent = document.querySelector('#review-content').value.trim();
+  const name = document.querySelector('#venue-name').value.trim();
+  const rating= document.querySelector('#review-rating').value.trim();
+  const description = document.querySelector('#review-content').value.trim();
 
-  if (name && reviewRating && reviewContent) {
-    const response = await fetch(`/api/projects`, {
+  if (name && rating && description) {
+    const response = await fetch(`/api/blogs`, {
       method: 'POST',
-      body: JSON.stringify({ name, reviewRating, reviewContent }),
+      body: JSON.stringify({ name, rating, description }),
       headers: {
         'Content-Type': 'application/json',
       },
@@ -17,7 +17,7 @@ const newFormHandler = async (event) => {
     if (response.ok) {
       document.location.replace('/profile');
     } else {
-      alert('Failed to create project');
+      alert('Failed to create blog');
     }
   }
 };
@@ -39,8 +39,8 @@ const delButtonHandler = async (event) => {
 };
 
 document
-  .querySelector('.new-review-form')
-  .addEventListener('submit', newFormHandler);
+  .querySelector('#blog-submit-btn')
+  .addEventListener('click', newFormHandler);
 
 document
   .querySelector('.review-list')
