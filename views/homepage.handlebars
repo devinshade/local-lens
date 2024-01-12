@@ -1,24 +1,16 @@
 <!-- Loop over each object in the projects array -->
-{{#each projects as |Project| }}
-<div class="row mb-4 Project">
-  <div class="col-md-5">
+{{#each blogs as |blog| }}
+<div>
+  <div>
     <h2>
       <!-- Call helper function with triple brackets to render the emoji span as HTML -->
-      {{{get_emoji}}}
-      <a href="/Project/{{Project.id}}">{{Project.name}}</a>
+      <a href="/api/blogRoutes.js/">{{Project.name}}</a>
     </h2>
-    {{!-- TODO: Insert existing blogposts --}}
-    {{!-- <p>
-      <span for="img" aria-label="money">💲</span>
-      <!-- Pass needed_funding value to the helper function -->
-      <span class="dollar-amount">{{format_amount Project.needed_funding}}</span>
-      needed!
-    </p> --}}
-    <p>Created by {{Project.user.name}} on {{format_date Project.date_created}}</p>
+    <p>Created by {{Blog.user_id}} on {{Blog.date_created}}</p>
   </div>
-  <div class="col-md-7">
+  <div>
     <p>
-      {{Project.description}}
+      {{Blog.description}}
     </p>
   </div>
 </div>
