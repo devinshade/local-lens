@@ -2,13 +2,13 @@ const newFormHandler = async (event) => {
   event.preventDefault();
 
   const name = document.querySelector('#venue-name').value.trim();
-  const reviewRating= document.querySelector('#review-rating').value.trim();
-  const reviewContent = document.querySelector('#review-content').value.trim();
+  const rating= document.querySelector('#review-rating').value.trim();
+  const description = document.querySelector('#review-content').value.trim();
 
-  if (name && reviewRating && reviewContent) {
+  if (name && rating && description) {
     const response = await fetch(`/api/blogs`, {
       method: 'POST',
-      body: JSON.stringify({ name, reviewRating, reviewContent }),
+      body: JSON.stringify({ name, rating, description }),
       headers: {
         'Content-Type': 'application/json',
       },
