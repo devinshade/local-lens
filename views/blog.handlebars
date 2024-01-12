@@ -1,38 +1,32 @@
-{{!-- <div>
-  <h2>{{User.name}}</h2>
-  <p>{{{name}}}</p>
-  <p>{{description}}</p>
-  <p>Created by {{User.name}} on {{date_created}}</p>
-</div> --}}
+<div class="blog"> 
+  <div class="text-center">
+    <h2>{{name}}</h2>
+    <p>{{{get_emoji}}}</p>
+    <p>{{description}}</p>
+    <p>Created by {{user.name}} on {{format_date date_created}}</p>
+    <p>
 
+    
+      {{#if reviews.length}}
+        <h3>User Reviews:</h3>
+        <ul>
+          {{#each reviews as |review|}}
+            <li>
+              <p>Rating: {{review.rating}}</p>
+              <p>{{review.content}}</p>
+              <p>Reviewed by: {{review.user.name}}</p>
+              <p>Review Date: {{format_date review.createdAt}}</p>
+            </li>
+          {{/each}}
+        </ul>
+      {{/if}}
 
-<div class="text-center">
-  <h2>{{name}}</h2>
-  <p>{{{get_emoji}}}</p>
-  <p>{{description}}</p>
-  <p>Created by {{user.name}} on {{format_date date_created}}</p>
-  <p>
+      <!-- additional blog-related content -->
 
-   
-    {{#if reviews.length}}
-      <h3>User Reviews:</h3>
-      <ul>
-        {{#each reviews as |review|}}
-          <li>
-            <p>Rating: {{review.rating}}</p>
-            <p>{{review.content}}</p>
-            <p>Reviewed by: {{review.user.name}}</p>
-            <p>Review Date: {{format_date review.createdAt}}</p>
-          </li>
-        {{/each}}
-      </ul>
-    {{/if}}
-
-    <!-- additional blog-related content -->
-
-  </p>
-  <p>
-  
-    <button class="btn btn-primary">Explore more Reviews!</button>
-  </p>
-</div>
+    </p>
+    <p>
+    
+      <button class="btn btn-primary">Explore more Reviews!</button>
+    </p>
+  </div>
+  </div>
